@@ -1,10 +1,10 @@
 apiVersion: integration/v1
 kind: Trigger
-name: template
+name: sysdig-trigger-alert-created
 version: 1
-summary: Trigger template
+summary: alert-created
 description: |
-  This is a template for a simple trigger.
+  This trigger fires when a Sysdig alert is created
 
 responders:
 - webhook
@@ -18,4 +18,4 @@ build:
   kind: Docker
 
 publish:
-  repository: myregistryuser/trigger-template
+  repository: relaysh/sysdig-trigger-alert-created

@@ -4,24 +4,40 @@ This [Sysdig](https://sysdig.com/) integration triggers when an alert is created
 
 ## Data Emitted
 
-| Name      | Data type | Description                             |
-|-----------|-----------|-----------------------------------------|
-| eventURL  | string    | The URL of the event                    |
-| state     | string    | The state (such as ACTIVE)              |
-| resolved  | bool      | Whether it is resolved                  |
-| condition | string    | The condition which triggered the alert |
+| Name             | Data type | Description                                                                                    |
+|------------------|-----------|------------------------------------------------------------------------------------------------|
+| webhook_contents | JSON      | The JSON [Sysdig alert POST data](https://docs.sysdig.com/en/configure-a-webhook-channel.html) |
 
 ## Usage
 
 For a complete usage guide, see the [Using triggers in workflows](https://relay.sh/docs/using-workflows/using-triggers/) documentation.
 
 ```yaml
+parameters:
+  eventURL:
+    description: The sysdig event URL
+  state:
+    description: The sysdig event state
+
 triggers:
 - name: sysdig-trigger-alert-created
   image: relaysh/sysdig-trigger-alert-created
   binding:
     parameters:
-      eventURL: !Data eventURL
+      eventURL: !Data webhook_contents.event.url
+      state: !Data webhook_contents.state
+      
+steps:
+- name: slack-notify
+  image: relaysh/slack-step-message-send
+  spec:
+    connection: !Connection { type: slack, name: my-slack }
+    channel: !Parameter slackChannel
+    message: !Fn.concat
+    - "Got an alert: "
+    - !Parameter eventURL
+    - " that is "
+    - !Parameter state
 ```
 
 ## Example Raw Data

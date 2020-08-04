@@ -1,3 +1,7 @@
+# simple webhook responder that just puts the entire
+# content of the webhook into a parameter for use by a
+# workflow.
+
 from relay_sdk import Interface, WebhookServer
 from quart import Quart, request, jsonify, make_response
 
@@ -12,10 +16,7 @@ async def handler():
         return {'message': 'not a valid webhook'}, 400, {}
 
     relay.events.emit({
-        'eventURL': payload['event']['url'],
-        'state': payload['state'],
-        'resolved': payload['resolved'],
-        'condition': payload['condition'],
+          'webhook_contents': payload
       })
 
     return {'message': 'success'}, 200, {}
