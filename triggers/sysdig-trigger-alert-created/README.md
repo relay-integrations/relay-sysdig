@@ -4,9 +4,7 @@ This [Sysdig](https://sysdig.com/) integration triggers when an alert is created
 
 ## Data Emitted
 
-| Name             | Data type | Description                                                                                    |
-|------------------|-----------|------------------------------------------------------------------------------------------------|
-| webhook_contents | JSON      | The JSON [Sysdig alert POST data](https://docs.sysdig.com/en/configure-a-webhook-channel.html) |
+The JSON [Sysdig alert POST data](https://docs.sysdig.com/en/configure-a-webhook-channel.html) is emitted directly by the trigger.
 
 ## Usage
 
@@ -24,8 +22,8 @@ triggers:
   image: relaysh/sysdig-trigger-alert-created
   binding:
     parameters:
-      eventURL: !Data webhook_contents.event.url
-      state: !Data webhook_contents.state
+      eventURL: !Data event.url
+      state: !Data state
       
 steps:
 - name: slack-notify
