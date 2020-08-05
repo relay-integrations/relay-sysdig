@@ -1,0 +1,15 @@
+apiVersion: integration/v1
+kind: Step
+name: alert-disable
+version: 1
+summary: Sysdig disable alert step
+
+description: |
+  This step can disable a Sysdig alert.
+
+build:
+  apiVersion: build/v1
+  kind: Docker
+
+publish:
+  repository: relaysh/sysdig-step-alert-disable
