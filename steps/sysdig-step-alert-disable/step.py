@@ -1,27 +1,15 @@
 #!/usr/bin/env python
 
-import getopt
-import os
 import sys
-sys.path.insert(0, os.path.join(os.path.dirname(os.path.realpath(sys.argv[0])), '..'))
-from sdcclient import SdcClient
+from sdcclient import SdMonitorClient
 from relay_sdk import Interface, Dynamic as D
 
 relay = Interface()
 
-options = {
-    'token': relay.get(D.sysdig.connection.token),
-    'alert_list': relay.get(D.alert_name).split(','),
-}
+token = relay.get(D.sysdig.connection.token)
+alert_list = relay.get(D.alert_name).split(',')
 
-initialize(**options)
-
-
-#
-# Instantiate the SDC client
-#
-sdclient = SdcClient(options['token'])
-
+sdclient = SdMonitorClient(token)
 ok, res = sdclient.get_alerts()
 if not ok:
     print(res)
@@ -29,7 +17,7 @@ if not ok:
 
 alert_found = False
 for alert in res['alerts']:
-    if alert['name'] in options['alert_list']:
+    if alert['name'] in alert_list:
         alert_found = True
         print("Updating \'" + alert['name'] + "\'. Enabled status before change:")
         print(alert['enabled'])
