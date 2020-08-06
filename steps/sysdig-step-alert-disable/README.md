@@ -22,5 +22,4 @@ steps:
     sysdig:
       connection:
         token: !Secret sysdigToken
-    
 ```

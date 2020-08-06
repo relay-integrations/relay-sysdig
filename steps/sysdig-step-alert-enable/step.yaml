@@ -1,0 +1,15 @@
+apiVersion: integration/v1
+kind: Step
+name: alert-enable
+version: 1
+summary: Sysdig enable alert step
+
+description: |
+  This step can enable a Sysdig alert.
+
+build:
+  apiVersion: build/v1
+  kind: Docker
+
+publish:
+  repository: relaysh/sysdig-step-alert-enable
