@@ -2,27 +2,13 @@
 
 This integration allows you to connect [Sysdig](https://sysdig.com/) to Relay.
 
-<!--
-## Steps
+## Actions
 
-| Name                                           | Description                               |
-|------------------------------------------------|-------------------------------------------|
-| [foobar-step-notify](steps/foobar-step-notify) | This steps sends a notification to Foobar | -->
--->
-
-## Triggers
-
-| Name | Description |
-|------|-------------|
-| [sysdig-trigger-alert-created](triggers/sysdig-trigger-alert-created) | Trigger to handle a webhook event from Sysdig |
-
-<!--
-## Workflows
-
-| Name | Description |
-|------|-------------|
-| [example1.yaml](workflows/example1/) | This workflow shows you how to link the Foobar steps and triggers together |
--->
+| Type    | Name                                                                  | Description                                           |
+|---------|-----------------------------------------------------------------------|-------------------------------------------------------|
+| Step    | [sysdig-step-alert-disable](steps/sysdig-step-alert-disable)          | This steps disables a Sysdig Monitor alert            |
+| Step    | [sysdig-step-alert-enable](steps/sysdig-step-alert-enable)            | This steps enables a Sysdig Monitor alert             |
+| Trigger | [sysdig-trigger-alert-created](triggers/sysdig-trigger-alert-created) | Triggers when a webhook event from Sysdig is received |
 
 ## Contributing
 
