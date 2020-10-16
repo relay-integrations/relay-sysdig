@@ -14,3 +14,15 @@ schemas:
   spec:
     source: file
     file: spec.schema.json
+examples:
+- summary: Disable an alert 
+  content: 
+    apiVersion: v1
+    kind: Step
+    name: disable-alert
+    image: relaysh/sysdig-step-alert-disable
+    spec:
+      alertName: !Parameter alertName
+      sysdig:
+        connection:
+          token: !Secret sysdigToken

@@ -14,3 +14,15 @@ schemas:
   spec:
     source: file
     file: spec.schema.json
+examples:
+- summary: Enable an alert 
+  content: 
+    apiVersion: v1
+    kind: Step
+    name: enable-alert
+    image: relaysh/sysdig-step-alert-enable
+    spec:
+      alertName: !Parameter alertName
+      sysdig:
+        connection:
+          token: !Secret sysdigToken

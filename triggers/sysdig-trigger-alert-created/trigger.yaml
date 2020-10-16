@@ -19,3 +19,15 @@ build:
 
 publish:
   repository: relaysh/sysdig-trigger-alert-created
+
+examples:
+- summary: When a Sysdig alert is created
+  content: 
+    apiVersion: v1
+    kind: Trigger
+    name: sysdig-trigger-alert-created
+    image: relaysh/sysdig-trigger-alert-created
+    binding:
+      parameters:
+        eventURL: !Data event.url
+        state: !Data state
