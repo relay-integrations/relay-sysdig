@@ -2,7 +2,7 @@ apiVersion: integration/v1
 kind: Step
 name: alert-disable
 version: 1
-summary: Sysdig disable alert step
+summary: Disable alert
 description: |
   This step can disable a Sysdig alert.
 build:
