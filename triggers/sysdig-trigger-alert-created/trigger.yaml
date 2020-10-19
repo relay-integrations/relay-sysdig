@@ -2,7 +2,7 @@ apiVersion: integration/v1
 kind: Trigger
 name: sysdig-trigger-alert-created
 version: 1
-summary: alert-created
+summary: Sysdig alert created
 description: |
   This trigger fires when a Sysdig alert is created
 
