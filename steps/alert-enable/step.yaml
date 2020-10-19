@@ -2,7 +2,7 @@ apiVersion: integration/v1
 kind: Step
 name: alert-enable
 version: 1
-summary: Sysdig enable alert step
+summary: Enable alert
 description: |
   This step can enable a Sysdig alert.
 build:
