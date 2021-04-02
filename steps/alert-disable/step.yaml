@@ -3,8 +3,7 @@ kind: Step
 name: alert-disable
 version: 1
 summary: Disable alert
-description: |
-  This step can disable a Sysdig alert.
+description: Disable a Sysdig alert.
 build:
   apiVersion: build/v1
   kind: Docker

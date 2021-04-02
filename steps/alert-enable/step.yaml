@@ -3,8 +3,7 @@ kind: Step
 name: alert-enable
 version: 1
 summary: Enable alert
-description: |
-  This step can enable a Sysdig alert.
+description: Enable a Sysdig alert.
 build:
   apiVersion: build/v1
   kind: Docker
