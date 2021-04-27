@@ -20,7 +20,9 @@ async def handler():
     if payload is None:
         return {'message': 'not a valid webhook'}, 400, {}
 
-    relay.events.emit(payload)
+    relay.events.emit({
+        'event_payload': payload
+    })
 
     return {'message': 'success'}, 200, {}
 
