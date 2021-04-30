@@ -22,8 +22,8 @@ triggers:
   image: relaysh/sysdig-trigger-alert-created
   binding:
     parameters:
-      eventURL: !Data event.url
-      state: !Data state
+      eventURL: !Data event_payload.event.url
+      state: !Data event_payload.state
       
 steps:
 - name: slack-notify
