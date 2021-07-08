@@ -19,7 +19,8 @@ alert_found = False
 for alert in res['alerts']:
     if alert['name'] in alert_list:
         alert_found = True
-        print("Updating \'" + alert['name'] + "\'. Enabled status before change:")
+        print("Updating \'" + alert['name'] +
+              "\'. Enabled status before change:")
         print(alert['enabled'])
         alert['enabled'] = False
         ok, res_update = sdclient.update_alert(alert)
