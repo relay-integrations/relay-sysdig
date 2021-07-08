@@ -14,8 +14,8 @@ schemas:
     source: file
     file: spec.schema.json
 examples:
-- summary: Disable an alert 
-  content: 
+- summary: Disable an alert
+  content:
     apiVersion: v1
     kind: Step
     name: disable-alert
