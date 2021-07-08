@@ -8,7 +8,7 @@ This integration allows you to connect [Sysdig](https://sysdig.com/) to Relay.
 |---------|-----------------------------------------------------------------------|-------------------------------------------------------|
 | Step    | [sysdig-step-alert-disable](steps/alert-disable)          | This steps disables a Sysdig Monitor alert            |
 | Step    | [sysdig-step-alert-enable](steps/alert-enable)            | This steps enables a Sysdig Monitor alert             |
-| Trigger | [sysdig-trigger-alert-created](triggers/sysdig-trigger-alert-created) | Triggers when a webhook event from Sysdig is received |
+| Trigger | [sysdig-trigger-alert-created](triggers/alert-created) | Triggers when a webhook event from Sysdig is received |
 
 ## Contributing
 
